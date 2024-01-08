@@ -40,8 +40,8 @@ void explainVectors();{
     vec.push_back({1, 5}); //adds a pair to vector vec.
     vec.emplace_back(9, 6);
 
-    vector<int> v(3, 100); //Create a vector of size 3 with every element 100 - {100, 100, 100};
-    vector<int> v(3); //Creates a vector of size 3 with every element 0 - {0, 0, 0};
+    vector<int> v(3, 100); //Create a vector of size 3 with every element 100 -> {100, 100, 100};
+    vector<int> v(3); //Creates a vector of size 3 with every element 0 -> {0, 0, 0};
 
     vector<int> v1(5, 20);
     vector<int> v2(v1); // Shallow copy of v1.
