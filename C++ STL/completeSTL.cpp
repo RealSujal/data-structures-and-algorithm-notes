@@ -57,8 +57,8 @@ void explainVectors();{
     vector<int>::iterator it = v.rend(); 
     vector<int>::iterator it = v.rbegin();
 
-    cout << v[0] << " " << v.at(0);
-    cout << v.back() << " "; //Both lines print the first element of the vector v, but v.at() is better.
+    cout << v[0] << " " << v.at(0); //Both lines print the first element of the vector v, but v.at() is better.
+    cout << v.back() << " "; //returns a reference to the last element in the vector.
 
     for (vector<int>::iterator it = v.begin(); it != v.end(); it++){
         cout << *(it) << " ";
