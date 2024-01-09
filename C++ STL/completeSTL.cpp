@@ -338,7 +338,120 @@ void explainUnorderedSet()
 
     unordered_set<int> set;
 }
-     
+
+
+    
+void explainUnorderedSet()
+{
+    // lower_bound and upper_bound function
+    // does not work, rest all function are same (stores unique)
+    // as its name says, it does not stores any
+    // particular order it has a better complexity
+    // than set in most cases, except some when collision happens
+
+    unordered_set<int> set;
 }
 
+
+    
+void explainMap()
+{ // Map stores unique keys and their value in Sorted Order.
+
+    map<int, int> mpp; // {Key, Value}
+
+    map<int, pair<int, int>> mpp; // here int is KEY and a pair of integer is its VALUE.
+
+    map<pair<int, int>, int> mpp; // here pair of int is KEY and int is its VALUE.
+
+    mpp[1] = 2; // {1, 2} ---> 1 is key and 2 is its value.
+    mpp.emplace({3, 1});
+
+    mpp.insert({2, 4});
+
+    mpp[{2, 3}] = 10; // this is for when Key is a pair and value is single integer.
+
+    for (auto it : mpp)
+    {
+        cout << it.first << " " << it.second << endl;
+    }
+
+    cout << mpp[1]; // Prints value of key[1].
+    cout << mpp[5]; // Prints value of key[5] but null if does not exist.
+
+    auto it = mpp.find(3); // Gives the iterator pointing to key3.
+    cout << *(it).second;  // Prints the value of key3.
+
+    auto it = mpp.find(5); // if does not exist, it will point to mpp.end();
+
+    // This is the syntax
+    auto it = lower_bound(2); // Lower bound return first element which is ≥ value. If not, return end().
+    auto it = upper_bound(3); // Upper bound return first element which is > value. If not, return end().
+
+    // erase, swap, size, empty, are same as above
+}
+
+void explainMultiMap();
+{
+    // everything same as map, only it can store duplicate keys but Sorted.
+    // only mpp[key] cannot be used here.
+}
+
+void explainUnorderedMap();
+{
+    // Unique keys but not sorted.
+}
+
+bool comp(pair<int, int> p1, pair<int, int> p2)
+{
+    if (p1.second < p2.second)
+    {
+        return true;
+    }
+    else if (p1.second == p2.second)
+    {
+        if (p1.first > p2.first)
+            return true;
+        }
+        return false;
+}
+
+
+
+    
+
+void explainExtra();
+{
+
+    sort(a, a + n);
+    sort(v.begin(), v.end());
+
+    sort(a + 2, a + 4);
+
+    sort(a, a + n, greater<int>); // Sorts in descending order.
+
+    pair<int, int> a[] = {{1, 2}, {2, 1}, {4, 1}};
+
+    // sort it according to second element
+    // if second element is same, then sort
+    // it according to first element but in decreasing
+
+    sort(a, a + n, comp);
+    // {{4, 1}, {2, 1}, {1, 2}};
+
+    int num = 7;
+    int cnt = __builtin_popcount(num);
+    // Counts the number of set bits in the binary representation of num
+    // (which is 3 in this case, as 7 in binary is 111).
+
+    string s = "123";
+    sort(s.begin(), s.end()); // Start from sorted string if you want to print all permutation.
+    do
+    {
+        cout << s << endl;
+    } while (next_permutation(s.begin(), s.end())); // Prints all permutation of the string s.
+
+    int maxi = *max_element(a, a + n); // returns the max element from an array.
+    int maxi = *min_element(a, a + n); // returns the min element from an array.
+}
+     
 }
