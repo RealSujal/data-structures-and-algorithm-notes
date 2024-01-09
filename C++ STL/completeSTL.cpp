@@ -82,7 +82,7 @@ void explainVectors();{
     // Insert Function
     vector<int> v(2, 100); // {100, 100}
     v.insert(v.begin(), 300); // {300, 100, 100}
-    v.insert(v.begin() + 1, 2, 10); // {300, 10, 10, 100, 100}
+    v.insert(v.begin() + 1, 2, 10); // {300, 10, 10, 100, 100}; 2 is the occurence of 10, if we give 5 instead of 2, it will add 5 - 10 to the vector.
      
 }
 
