@@ -328,15 +328,16 @@ void explainMultiSet()
 
 
 
-    void explainUnorderedSet(); {
-        // lower_bound and upper_bound function
-        // does not work, rest all function are same
-        // as its name says, it does not stores any
-        // particular order it has a better complexity
-        // than set in most cases, except some when collision happens
+void explainUnorderedSet()
+{
+    // lower_bound and upper_bound function
+    // does not work, rest all function are same
+    // as its name says, it does not stores any
+    // particular order it has a better complexity
+    // than set in most cases, except some when collision happens
 
-        unordered_set<int> set;
-    }
+    unordered_set<int> set;
+}
      
 }
 
