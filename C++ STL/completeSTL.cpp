@@ -85,6 +85,258 @@ void explainVectors()
     vector<int> v(2, 100); // {100, 100}
     v.insert(v.begin(), 300); // {300, 100, 100}
     v.insert(v.begin() + 1, 2, 10); // {300, 10, 10, 100, 100}; 2 is the occurence of 10, if we give 5 instead of 2, it will add 5 - 10 to the vector.
+
+    vector<int> copy(2, 50); // {50, 50};
+    v.insert(v.begin(), copy.begin(), copy.end()); //adds the entire 'copy' vector to beginning of vector 'v'.
+
+    // {10, 20};
+    cout << v.size();
+
+    // {10, 20};
+    v.pop_back(); // Pops out the last element of vector.
+
+    // v1 -> {10, 20};
+    // v2 -> {40, 50};
+    v1.swap(v2); // elements of v1 swaps with v2. v1 -> {40, 50}; v2 -> {10, 20};
+
+    v.clear(); // Erases the entire vector.
+
+    cout << v.empty(); // Checks if the vector is empty. Return true if empty, else false.
+}
+
+
+
+
+
+
+
+void explainList()
+{
+
+    // A list is an ordered data structure that stores collection of items in a specific order.
+    list<int> ls;
+    ls.push_back(4); // {4};
+    ls.emplace_back(5); // {4, 5};
+
+    ls.push_front(1); // adds an element to the front of list. {1, 4, 5};
+    ls.emplace_front(2); // same as push_front. {2, 1, 4, 5};
+
+    // Rest functions are same as vector
+    // Begin, end, rbegin, rend, clear, insert, size, swap
+}
+
+
+
+
+
+void explainDeque()
+{
+
+    // Deque is a data structure that inherits the properties of both queues and stacks.
+    deque<int> dq;
+    dq.push_back(1); // {1};
+    dq.emplace_back(2); // {1, 2};
+    dq.push_front(3); // {3, 1, 2};
+    dq.emplace_front(4); // {4, 3, 1, 2};
+
+    dq.pop_back(); // {4, 3, 1};
+    dq.pop_front(); // {3, 1};
+
+    dq.back(); // returns the last element of the deque.
+    dq.front(); // returns the first element of the deque.
+
+    // Rest functions are same as vector
+        // Begin, end, rbegin, rend, clear, insert, size, swap
+}
+
+
+
+
+
+
+void explainStack()
+{  // O(1) --> everything happens in constant time
+
+    // A stack is a linear data structure that follows the Last In First Out (LIFO) principle.
+    stack<int> st;
+    st.push(1); // {1};
+    st.push(2); // {2, 1};
+    st.push(3); // {3, 2, 1};
+    st.push(4); // {4, 3, 2, 1};
+    st.emplace(5); // {5, 4, 3, 2, 1};
+
+    cout << st.top(); // prints 5 "** st[2] is invalid **"
+
+    st.pop(); //pops the top element. {4, 3, 2, 1};
+
+    cout << st.top(); // 4
+
+    cout << st.size(); // 4
+
+    cout << st.empty(); // Checks if the stack is empty. Return true if empty, else false.
+
+    stack<int> st1, st2;
+    st1.swap(st2); // swaps with each other.
+}
+
+
+
+
+
+
+
+void explainQueue()
+{   // O(1) --> all happens in constant time
+
+    queue<int> q; // Queue is FIFO -> FirstInFirstOut
+    q.push(1); // {1};
+    q.push(2); // {1, 2};
+    q.emplace(4); // {1, 2, 4};
+
+    q.back() += 5; // Adds with last element (4 + 5 = 9);
+
+    // Q is {1, 2, 9}
+    cout << q.front(); // Prints 1
+
+    q.pop(); // Front element will pop out. {2, 9};
+
+    cout << q.front(); // Prints 2
+
+    // size, swap, empty, same as stack
+}
+
+
+
+
+
+
+
+
+
+void explainPQ()
+{    //push --> O(logN)
+     //top --> O(1)
+     //pop --> O(logN)
+
+    // Maximum Heap
+    priority_queue<int> pq;
+
+    pq.push(5); // {5};
+    pq.push(2); // {5, 2};
+    pq.push(8); // {8, 5, 2};
+    pq.emplace(10); // {10, 8, 5, 2};
+
+    cout << pq.top(); // Prints 10.
+
+    pq.pop(); // Pops out 10. {8, 5, 2};
+
+    cout << pq.top(); // Prints 8.
+
+    // size, swap, empty, function, same as others
+
+    // Minimum Heap
+    priority_queue<int, vector<int>, greater<int>> pq;
+    pq.push(5); // {5}; 
+    pq.push(2); // {2, 5};
+    pq.push(8); // {2, 5, 8};
+    pq.emplace(10); // {2, 5, 8, 10};
+
+    cout << pq.top(); // Prints 2.
+
+}
+
+
+
+
+
+
+
+
+void explainSet()
+{   // O(logN)
+
+    // Set stores UNIQUE value in SORTED order.
+    set<int> st;
+    st.insert(1); // {1}
+    st.emplace(2); // {1, 2}
+    st.insert(2); // {1, 2} ---> 2 will not insert here because 2 already exist, set only keeps unique value.
+    st.insert(4); // {1, 2, 4}
+    st.insert(3); // {1, 2, 3, 4} --- stores in Sorted order.
+
+    // Functionality of insert in vector can be used, That will only increase efficiency.
+
+    // {1, 2, 3, 4, 5}
+    auto it = st.find(3); // Return the iterator that points to 3.
+
+    // {1, 2, 3, 4, 5}
+    auto it = st.find(6); // If the element does not exist, it will return st.end() - iterator that points right after the end.
+
+    // {1, 4, 5}
+    st.erase(5); // erases 5 // takes logarithmic time
+
+    int cnt = st.count(1); // Return 1 if exist, else 0 --- it basically returns the occurence.
+
+    auto it = st.find(3);
+    st.erase(it); // it takes constant time, erases the iterator.
+
+    // {1, 2, 3, 4, 5}
+    auto it1 = st.find(2);
+    auto it2 = st.find(4);
+    st.erase(it1, it2); // after erase {1, 4, 5} [first, last) -- Same as v.erase(v.begin() + 1, v.begin() + 3);
+
+    // lower_bound() and upper_bound() function works in the same way
+    // as in vector it does.
+
+    // This is the syntax
+    auto it = st.lower_bound(2); // Lower bound return first element which is ≥ value. If not, return end().
+
+    auto it = st.upper_bound(3); // Upper bound return first element which is > value. If not, return end().
+}
+
+
+
+
+
+
+
+
+
+
+void explainMultiSet()
+{
+    // Everything is same as set (Sorted Order).
+    // only stores duplicate elements also.
+
+    multiset<int> ms;
+    ms.insert(1); // {1}
+    ms.insert(1); // {1, 1}
+    ms.insert(1); // {1, 1, 1}
+
+    ms.erase(1); // all 1s erased.
+
+    ms.erase(ms.find(1)); // Only erases a single 1. --> {1, 1}
+
+    ms.erase(ms.find(1), next(ms.find(1), 2)); // Erases both the remaining 1.
+
+    // Rest all functions are same as set.
+}
+
+
+
+
+
+
+
+
+    void explainUnorderedSet(); {
+        // lower_bound and upper_bound function
+        // does not work, rest all function are same
+        // as its name says, it does not stores any
+        // particular order it has a better complexity
+        // than set in most cases, except some when collision happens
+
+        unordered_set<int> set;
+    }
      
 }
 
