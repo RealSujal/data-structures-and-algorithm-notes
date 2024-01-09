@@ -12,7 +12,8 @@ int main()
 */
 
 // *** Pairs *** //
-void explainPairs(); {
+void explainPairs()
+{
 
     pair <int, int> p = {9, 8}; //Creates a Pair.
 
@@ -28,7 +29,8 @@ void explainPairs(); {
 }
 
 // *** Vectors *** //
-void explainVectors();{
+void explainVectors()
+{
 
     vector<int> v; //Creates a vector of int data type of variable v.
 
